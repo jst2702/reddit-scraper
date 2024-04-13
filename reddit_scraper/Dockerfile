@@ -6,11 +6,11 @@ WORKDIR /app
 
 # Copy the main.py file to the working directory
 COPY . .
-COPY main.py .
-COPY requirements.txt .
+# COPY main.py .
+# COPY requirements.txt .
 
-# Copy the entire reddit_scraper directory into the container
-COPY reddit_scraper/ reddit_scraper/
+# # Copy the entire reddit_scraper directory into the container
+# COPY reddit_scraper/ reddit_scraper/
 
 # Copy the dependencies file to the working directory
 COPY requirements.txt .
