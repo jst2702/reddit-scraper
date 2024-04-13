@@ -3,11 +3,11 @@ version: '3.8'
 services:
   reddit-scraper:
     build:
-      context: ./reddit_scraper
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./reddit_scraper/Dockerfile
     ports:
       - "8000:8000"
     volumes:
-      - ./reddit_scraper:/app
+      - ./reddit_scraper:/app/reddit_scraper
     environment:
       - PYTHONUNBUFFERED=1

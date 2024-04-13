@@ -4,14 +4,19 @@ FROM python:3.9-slim
 # Set the working directory in the container
 WORKDIR /app
 
+# Copy the main.py file to the working directory
+COPY . .
+COPY main.py .
+COPY requirements.txt .
+
+# Copy the entire reddit_scraper directory into the container
+COPY reddit_scraper/ reddit_scraper/
+
 # Copy the dependencies file to the working directory
 COPY requirements.txt .
 
 # Install any dependencies
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the entire reddit_scraper directory into the container
-COPY reddit_scraper/ .
 
 # Expose port 8000 to the outside world
 EXPOSE 8000

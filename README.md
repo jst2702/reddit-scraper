@@ -1,9 +1,10 @@
-
+## File structure
 ```
 reddit-scraper
-├─ .gitignore
+├─ COMMANDS.md
 ├─ docker-compose.yaml
 ├─ LICENSE
+├─ main.py
 ├─ poetry.lock
 ├─ pyproject.toml
 ├─ README.md
@@ -16,7 +17,6 @@ reddit-scraper
 │  │  ├─ posts.db
 │  │  └─ __init__.py
 │  ├─ Dockerfile
-│  ├─ main.py
 │  ├─ requirements.txt
 │  ├─ scraping
 │  │  ├─ scrape_reddit.py
@@ -24,5 +24,4 @@ reddit-scraper
 │  └─ __init__.py
 └─ tests
    └─ __init__.py
-
 ```

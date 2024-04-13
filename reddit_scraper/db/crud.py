@@ -1,6 +1,7 @@
 import sqlite3
 from reddit_scraper.db.metadata import DB_PATH
 from reddit_scraper.db.classes import Post
+from typing import List, Union
 
 def create_post(post):
     """
@@ -12,7 +13,21 @@ def create_post(post):
     conn.commit()
     conn.close()
 
-def read_posts():
+def read_post(post_id: int) -> Union[Post, None]:
+    """
+    Retrieve a post from the database by its ID.
+    """
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute('''SELECT * FROM posts WHERE id = ?''', (post_id,))
+    row = c.fetchone()
+    conn.close()
+    if row:
+        return Post(title=row[1], author=row[2])
+    else:
+        return None
+    
+def read_posts() -> List[Post]:
     """
     Retrieve all posts from the database.
     """
